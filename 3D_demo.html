@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body, div, span,
+        h1, h2, h3, h4, h5, h6, p
+        a, img, ol, ul, li
+        {
+            margin:0;padding:0;border:0;outline:0;
+        }
+        #demo {
+            -webkit-perspective: 800;
+            -webkit-perspective-origin: 50% 50%;
+        }
+        #d3 {
+            -webkit-transform-style: preserve-3d;
+            -webkit-transform-origin: 50% 50% 100px;
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            position: relative;
+            animation: rotate-frame 30s linear infinite;
+        }
+        .page {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            font-size: 200px;
+            line-height: 200px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            opacity: 0.4;
+        }
+        #page1 {
+            background: purple;
+        }
+        #page2 {
+            background: yellowgreen;
+
+            -webkit-transform-origin:right;
+            -webkit-transform: rotateY(-90deg);
+        }
+        #page3 {
+            background-color: orangered;
+            -webkit-transform-origin:left;
+            -webkit-transform: rotateY(90deg);
+        }
+        #page4 {
+            background: blue;
+            -webkit-transform-origin:top;
+            -webkit-transform: rotateX(-90deg);
+        }
+        #page5 {
+            background: deeppink;
+            -webkit-transform-origin:bottom;
+            -webkit-transform: rotateX(90deg);
+        }
+        #page6 {
+            background: aquamarine;
+            -webkit-transform: translateZ(-200px);
+        }
+
+        @keyframes rotate-frame {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            10% {
+                transform: rotateX(0deg) rotateY(180deg);
+            }
+            20% {
+                transform: rotateX(-180deg) rotateY(0deg);
+            }
+            30% {
+                transform: rotateX(-360deg) rotateY(180deg);
+            }
+            40% {
+                transform: rotateX(-360deg) rotateY(360deg);
+            }
+            50% {
+                transform: rotateX(-180deg) rotateY(360deg);
+            }
+            60% {
+                transform: rotateX(90deg) rotateY(180deg);
+            }
+            70% {
+                transform: rotateX(0deg) rotateY(180deg);
+            }
+            80% {
+                transform: rotateX(90deg) rotateY(90deg);
+            }
+            90% {
+                transform: rotateX(90deg) rotateY(0deg);
+            }
+            100% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <div id="d3">
+            <div class="page" id="page1">1</div>
+            <div class="page" id="page2">2</div>
+            <div class="page" id="page3">3</div>
+            <div class="page" id="page4">4</div>
+            <div class="page" id="page5">5</div>
+            <div class="page" id="page6">6</div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

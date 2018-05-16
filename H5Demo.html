@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #block {
+            width: 400px;
+            height: 400px;
+            background-color: blueviolet;
+            margin: 0 auto;
+            -webkit-transition: background-color 3s,width 3s;
+        }
+        #block:hover {
+            background-color: greenyellow;
+            width: 100px;
+        }
+        .progress-bar {
+            height: 40px;
+            width: 40px;
+            background-color: deeppink;
+        }
+        .progress-bar:hover {
+            width: 900px;
+        }
+        #bar1 {
+            -webkit-transition: width 5s linear;
+        }
+        #bar2 {
+            -webkit-transition: width 5s ease;
+        }
+        #bar3 {
+            -webkit-transition: width 5s ease-in;
+        }
+        #bar4 {
+            -webkit-transition: width 5s ease-out;
+        }
+        #bar5 {
+            -webkit-transition: width 5s ease-in-out;
+        }
+        #experiment {
+            -webkit-perspective: 800px;
+            -webkit-perspective-origin: 50% 50%;
+            -webkit-transform-style: preserve-3d;
+        }
+        #block1 {
+            width: 150px;
+            height: 150px;
+            background-color: palevioletred;
+            margin: 0 auto;
+
+            /*-webkit-transform: rotateZ(45deg);*/
+        }
+        .renge-centrl {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!--<div id="block"></div>-->
+    <!--<div id="wrapper">-->
+        <!--<p>liner</p>-->
+        <!--<div class="progress-bar" id="bar1"></div>-->
+
+        <!--<p>ease</p>-->
+        <!--<div class="progress-bar" id="bar2"></div>-->
+
+        <!--<p>ease-in</p>-->
+        <!--<div class="progress-bar" id="bar3"></div>-->
+
+        <!--<p>ease-out</p>-->
+        <!--<div class="progress-bar" id="bar4"></div>-->
+
+        <!--<p>ease-in-out</p>-->
+        <!--<div class="progress-bar" id="bar5"></div>-->
+    <!--</div>-->
+
+<!-- 三维 -->
+<div id="experiment">
+    <div id="block1"></div>
+</div>
+<div id="op">
+    <p>rotate x: <span id="degx-span">0</span></p>
+    <input type="range" min="-360" max="360" id="retatex" value="0" class="renge-centrl" onchange="rotate()"><br/>
+    <p>rotate y: <span id="degy-span">0</span></p>
+    <input type="range" min="-360" max="360" id="retatey" value="0" class="renge-centrl" onchange="rotate()"><br/>
+    <p>rotate z: <span id="degz-span">0</span></p>
+    <input type="range" min="-360" max="360" id="retatez" value="0" class="renge-centrl" onchange="rotate()"><br/>
+
+    <button onclick="reset()">reset</button>
+
+    <script type="text/javascript">
+        function rotate() {
+            var x = document.getElementById('retatex').value;
+            var y = document.getElementById('retatey').value;
+            var z = document.getElementById('retatez').value;
+            console.log(x,y,z);
+            document.getElementById('block1').style.webkitTransform ="rotateX("+x+"deg) rotateY("+y+"deg) rotateZ("+z+"deg)";
+            document.getElementById('degx-span').innerText = x;
+            document.getElementById('degy-span').innerText = y;
+            document.getElementById('degz-span').innerText = z;
+        }
+        function reset() {
+            var x = 0,y=0,z=0;
+            document.getElementById('block1').style.webkitTransform ="rotateX("+x+"deg) rotateY("+y+"deg) rotateZ("+z+"deg)";
+            document.getElementById('degx-span').innerText = x;
+            document.getElementById('degy-span').innerText = y;
+            document.getElementById('degz-span').innerText = z;
+            document.getElementById('retatex').value = x;
+            document.getElementById('retatey').value = y;
+            document.getElementById('retatez').value = z;
+        }
+    </script>
+</div>
+</body>
+</html>

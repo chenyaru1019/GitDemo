@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div {
+            perspective: 800;
+        }
+        #div1 {
+            transform-style: preserve-3d;
+            transform-origin: 50% 50%;
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+            transform: rotateY(30deg) rotateZ(30deg) rotateX(30deg);
+        }
+        .box {
+            width: 250px;
+            height: 100px;
+            background: palevioletred;
+            position: absolute;
+
+        }
+        #div3 {
+            transform: rotateY(90deg);
+            /*transform: translateX(100px);*/
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <div id="div1">
+        <div class="box" id="div2" style="background: blue">1</div>
+        <div class="box" id="div3" style="background: greenyellow">2</div>
+        <div class="box" id="div4" style="background: rebeccapurple">3</div>
+        <div class="box" id="div5" style="background: yellow">4</div>
+    </div>
+</div>
+</body>
+</html>
